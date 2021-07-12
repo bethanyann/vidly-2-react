@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ListGroup = (props) => {
-   const { items, onItemSelect, textProperty, valueProperty, selectedItem} = props;
+const ListGroup = ({ items, onItemSelect, textProperty, valueProperty, selectedItem}) => {
+   //const { items, onItemSelect, textProperty, valueProperty, selectedItem} = props;
 
    return (
         <ul className="list-group list-group-horizontal" style={{flexDirection:"row"}} >
