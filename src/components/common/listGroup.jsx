@@ -1,10 +1,11 @@
 import React from 'react';
+//this is the generic component for the Genere list
 
-const ListGroup = (props) => {
-   const { items, onItemSelect, textProperty, valueProperty, selectedItem} = props;
+const ListGroup = ({ items, onItemSelect, textProperty, valueProperty, selectedItem}) => {
+   //const { items, onItemSelect, textProperty, valueProperty, selectedItem} = props;
 
    return (
-        <ul className="list-group list-group-horizontal" style={{flexDirection:"row"}} >
+        <ul className="list-group list-group-horizontal clickable" style={{flexDirection:"row", marginTop: 20}} >
             {items.map(genre => (
                     <li className={ genre === selectedItem ? "list-group-item active" : "list-group-item"} 
                      style={{marginRight: 20, marginBottom: 20}} 

@@ -1,37 +1,35 @@
 import React, { Component } from 'react';
-import TableHeader from './common/tableHeader';
-import TableBody from './common/tableBody';
 import Like from './common/like';
-
-
+import Table from './common/table';
 
 class MoviesTable extends Component {
+    //structured the app so that the MoviesTable component is a wrapper around the 
+    //Table component, making it easier to reuse the Table component for anything else in our 
+    //application
     columns = [
-        {path: 'title', label: 'Title'},
-        {path: 'genre.name', label: 'Genre'},
-        {path: 'numberInStock', label: 'Stock'},
-        {path: 'dailyRentalRate', label: 'Rate'},
-        { key: 'like', 
-          content: movie => <Like liked={movie.liked} onClick={() => this.props.onLike(movie)}/>},
-        { key: 'delete', 
-          content: movie => <button className="btn btn-danger btn-sm" onClick={() => this.props.onDelete(movie)}>Delete</button>
-        }
-    ]
+        {path: 'title', label: 'Title' },
+        {path: 'genre.name', label: 'Genre' },
+        {path: 'numberInStock', label: 'Stock' },
+        {path: 'dailyRentalRate', label: 'Rate' },
+        {key: 'like', content: movie => (<Like liked={movie.liked} onClick={() => this.props.onLike(movie)}/>) }, //empty object for like column
+        {key: 'delete', content: movie => (<button onClick={() => this.props.onDelete(movie)} className="btn btn-danger btn-sm"><span className="fa fa-trash"></span></button>)}, //empty object for delete column
+    ];
+   
 
     render() { 
-       //object destructuring right at the beginning so you can get an idea for what the interface for this will look like 
-    const {movies, onSort, sortColumn} = this.props;
+        const {movies, onSort, sortColumn} = this.props;
 
-    return(
-        <table className="table" style={{height: 150}}>
-            <TableHeader columns={this.columns} sortColumn={sortColumn} onSort={onSort}/>
-            <TableBody data={movies}  columns={this.columns} />
-        </table>
-    );
-
+        return (
+          <Table 
+            columns={this.columns} 
+            data={movies} 
+            sortColumn={sortColumn} 
+            onSort={onSort}
+          />
+        );
     }
 }
-
+ 
 export default MoviesTable;
 
 

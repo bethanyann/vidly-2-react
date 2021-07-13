@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 
-const Pagination = (props) => {
-    const {itemCount, pageSize, currentPage, onPageChange} = props;
+const Pagination = ({itemCount, pageSize, currentPage, onPageChange}) => {
+    //const {itemCount, pageSize, currentPage, onPageChange} = props;
     const pagesCount = Math.ceil(itemCount / pageSize);
 
     //console.log('current page ',currentPage);
     
     //if there's only one page don't display the page numbers
-    if(pagesCount ===1) return null;
+    if(pagesCount === 1) return null;
     //returns an array of numbers from the first number (start) to the end number (pagesCount +1)
     const pages = _.range(1, pagesCount + 1);
 
