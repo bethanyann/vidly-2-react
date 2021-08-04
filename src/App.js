@@ -14,7 +14,7 @@ function App() {
   return (
     <div>
       <NavBar />
-      <main className="container">
+      <main className="container-fluid">
         {/* wrap everything in a switch so the last redirect doesn't redirect every url to the movies page */}
         <Switch>
           <Route path="/login" component={LoginForm} />

@@ -24,9 +24,11 @@ const NavBar = () => {
                             Rentals
                         </NavLink>
                     </li>
+                </ul>
+                <ul className="navbar-nav">
                     <li className="nav-item">
                         <NavLink className="nav-item nav-link" to="/login">
-                            Login 
+                             <span className="fa fa-user-circle" style={{}}></span>Login
                         </NavLink>
                     </li>
                 </ul>
