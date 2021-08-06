@@ -13,7 +13,6 @@ class LoginForm extends Component {
         e.preventDefault();
         //call the server here
     }
-
     //handleChange = (e) => {
     handleChange = ({ currentTarget: input}) => {
         const account = {...this.state.account};
@@ -21,6 +20,8 @@ class LoginForm extends Component {
         //e.currentTarget returns our input field and then grab the .value from it
         //if you want to grab the name of the input field dynamically, set a "name" property
         //on the input field and then grab the name out of the event with an e.currentTarget.name
+
+        
         account[input.name] = input.value;
         console.log(account.username, account.password);
         //then update the state with the new object and values
